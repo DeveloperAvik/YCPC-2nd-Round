@@ -1,57 +1,32 @@
 #include <bits/stdc++.h>
-#include<iostream>
-#include <stdio.h>
+#define ll long long
+using namespace std;
 
 int main()
 {
-    int N;
-    scanf("%d", &N);
-
-    int spaces = N - 1;
-    int stars = 1;
-
-    // Print the top part of the tree
-    for (int i = 0; i < N; i++)
+    ll n;
+    cin >> n;
+    ll line = (n + 1) / 2 + 5;
+    ll sp = line - 1;
+    ll st = 1;
+    for (ll i = 1; i <= line; i++)
     {
-        // Print leading spaces
-        for (int j = 0; j < spaces; j++)
-        {
-            printf(" ");
-        }
-
-        // Print stars
-        for (int j = 0; j < stars; j++)
-        {
-            printf("*");
-        }
-
-        // Move to the next line
-        printf("\n");
-
-        // Adjust spaces and stars for the next row
-        spaces--;
-        stars += 2;
+        for (ll j = 1; j <= sp; j++)
+            cout << " ";
+        for (ll j = 1; j <= st; j++)
+            cout << "*";
+        sp--;
+        st += 2;
+        cout << endl;
     }
-
-    // Print the trunk of the tree
-    int x;
-    scanf("%d" , &x);
-
-    if (x % 2 == 0)
+    ll start = ((line * 2) - 1 - n) / 2;
+    for (ll i = 1; i <= 5; i++)
     {
-        return false;
+        for (ll j = 1; j <= start; j++)
+            cout << " ";
+        for (ll j = 1; j <= n; j++)
+            cout << "*";
+        cout << endl;
     }
-    else
-    {
-        for (int i = 0; i < x; i++)
-        {
-            for (int j = 0; j < x; j++)
-            {
-                printf(" ");
-            }
-            printf("*\n");
-        }
-    }
-
     return 0;
 }
